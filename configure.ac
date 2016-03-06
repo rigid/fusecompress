@@ -41,9 +41,9 @@ AC_CHECK_FUNCS([setfsuid setfsgid fchdir fdatasync ftruncate lchown memset mkdir
 AC_C_BIGENDIAN(AC_DEFINE(FC_BIG_ENDIAN,1,[big-endian]),AC_DEFINE(FC_LITTLE_ENDIAN,1,[little-endian]),AC_MSG_ERROR([unknown endianness]))
 
 AC_ARG_ENABLE(zlib,
-        [  --disable-gz            Don't compile DEFLATE compression module])
+        [  --disable-zlib          Don't compile DEFLATE compression module])
 AC_ARG_ENABLE(bzip2,
-        [  --disable-bz2           Don't compile BZip2 compression module])
+        [  --disable-bzip2         Don't compile BZip2 compression module])
 AC_ARG_ENABLE(lzma,
         [  --disable-lzma          Don't compile LZMA compression module])
 AC_ARG_ENABLE(lzo,
