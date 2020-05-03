@@ -1375,7 +1375,7 @@ int main(int argc, char *argv[])
 
 	if (!dedup_enabled) {
 		fusev[fusec++] = "-o";
-		fusev[fusec++] = "use_ino";
+		fusev[fusec++] = "noforget";
 	}
 	
 	if (!mountpoint) {
