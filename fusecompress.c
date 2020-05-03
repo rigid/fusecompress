@@ -1178,11 +1178,7 @@ int main(int argc, char *argv[])
 	detach = 0;
 #endif
 	fusev[fusec++] = "-o";
-	fusev[fusec++] = 
-#ifndef CONFIG_OSX
-			 "nonempty,"
-#endif
-			 "kernel_cache,default_permissions";
+	fusev[fusec++] = "kernel_cache,default_permissions";
 
 	if (geteuid() == 0)
 	{
