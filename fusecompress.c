@@ -574,8 +574,8 @@ static int fusecompress_utime(const char *path, const struct timespec *buf)
 
 	if (buf != NULL)
 	{
-		timesval[0].tv_usec = buf->tv_usec;
-		timesval[1].tv_usec = buf->tv_usec;
+		timesval[0].tv_usec = buf->tv_nsec;
+		timesval[1].tv_usec = buf->tv_nsec;
 		timesval[0].tv_sec = buf->tv_sec;
 		timesval[1].tv_sec = buf->tv_sec;
 		timesbuf=timesval;
