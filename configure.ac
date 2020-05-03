@@ -112,9 +112,13 @@ AM_CONDITIONAL(HAVE_MHASH, test x$have_mhash == xyes)
 AM_CONDITIONAL(DEDUP, test x$enable_dedup == xyes)
 
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
-PKG_CHECK_MODULES(fuse3)
+PKG_CHECK_MODULES([FUSE], [fuse3 >= 3.2.1], [AC_DEFINE([HAVE_FUSE], 1, [Define if libfuse is available])], [AC_MSG_ERROR([*** libfuse not found])]])
+old_CFLAGS=$CFLAGS
+old_LDFLAGS=$LDFLAGS
 oldlibs="$LIBS"
-LIBS="$LIBS $fuse_LIBS"
+CFLAGS="$CFLAGS $pkg_cv_FUSE_CFLAGS"
+LDFLAGS="$LDFLAGS $pkg_cv_FUSE_LDFLAGS"
+LIBS="$LIBS $pkg_cv_FUSE_LIBS"
 
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
