@@ -112,7 +112,7 @@ AM_CONDITIONAL(HAVE_MHASH, test x$have_mhash == xyes)
 AM_CONDITIONAL(DEDUP, test x$enable_dedup == xyes)
 
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
-PKG_CHECK_MODULES(fuse, [fuse >= 2.2])
+PKG_CHECK_MODULES(fuse3)
 oldlibs="$LIBS"
 LIBS="$LIBS $fuse_LIBS"
 
