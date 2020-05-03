@@ -564,7 +564,7 @@ out:
 	return ret;	
 }
 
-static int fusecompress_utime(const char *path, struct utimbuf *buf)
+static int fusecompress_utime(const char *path, const struct timespec *buf)
 {
 	const char *full;
 	file_t *file;
@@ -574,10 +574,10 @@ static int fusecompress_utime(const char *path, struct utimbuf *buf)
 
 	if (buf != NULL)
 	{
-		timesval[0].tv_usec = 0;
-		timesval[1].tv_usec = 0;
-		timesval[0].tv_sec = buf->actime;
-		timesval[1].tv_sec = buf->modtime;
+		timesval[0].tv_usec = buf->tv_usec;
+		timesval[1].tv_usec = buf->tv_usec;
+		timesval[0].tv_sec = buf->tv_sec;
+		timesval[1].tv_sec = buf->tv_sec;
 		timesbuf=timesval;
 	}
 
